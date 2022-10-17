@@ -58,7 +58,20 @@ adoptions_EL.addEventListener("click", adoptions_click)
 steal_EL.addEventListener("click", steal_click)
 cloning_EL.addEventListener("click", cloning_click)
 
-var timer = setInterval(myTimer, 10); // kjører funksjonen myTimer 1 gang i sekundet
+var human_timer_interval = setInterval(human_timer, 10); // kjører funksjonen myTimer 1 gang i sekundet
 function myTimer(){ 
     human_num_EL.innerHTML = human_amount;
 }
+var adoptions_timer_interval = setInterval(adoptions_timer, 1000); // kjører funksjonen myTimer 1 gang i sekundet
+function adoptions_timer(){ 
+    human_amount += adoptions_amount;
+}
+var steal_timer_interval = setInterval(adoptions_timer, 1000); // kjører funksjonen myTimer 1 gang i sekundet
+function adoptions_timer(){ 
+    human_amount += adoptions_amount;
+}
+var adoptions_timer_interval = setInterval(adoptions_timer, 1000); // kjører funksjonen myTimer 1 gang i sekundet
+function adoptions_timer(){ 
+    human_amount += adoptions_amount;
+}
+
