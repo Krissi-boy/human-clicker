@@ -1,22 +1,27 @@
 var human_EL = document.querySelector("#human");
 var human_num_EL = document.querySelector("#human_num");
 var adoptions_EL = document.querySelector("#adoptions");
-var steal_EL = document.querySelector("#steal");
-var cloning_EL = document.querySelector("#cloning");
-var steal_price_EL = document.querySelector("#steal_price")
+var thieves_EL = document.querySelector("#thieves");
+var clonings_EL = document.querySelector("#clonings");
+var thieves_price_EL = document.querySelector("#thieves_price")
 var adoptions_price_EL = document.querySelector("#adoptions_price")
-var cloning_price_EL = document.querySelector("#cloning_price")
+var clonings_price_EL = document.querySelector("#clonings_price")
+var thieves_am_EL = document.querySelector("#thieves_am")
+var adoptions_am_EL = document.querySelector("#adoptions_am")
+var clonings_am_EL = document.querySelector("#clonings_am")
 
+
+console.log(thieves_am_EL)
 
 var human_amount = 0;
-click = 0;
-adoptions_amount = 0;
-steal_amount = 0;
-cloning_amount = 0;
+var click = 0;
+var adoptions_amount = 0;
+var thieves_amount = 0;
+var clonings_amount = 0;
 
-var steal_price = 50;
-adoptions_price = 500;
-cloning_price = 1500;
+var thieves_price = 50;
+var adoptions_price = 500;
+var clonings_price = 1500;
 
 
 function human_click() {
@@ -27,51 +32,57 @@ function human_click() {
 function adoptions_click() {
     if (human_amount > adoptions_price)
     {
+    adoptions_am_EL.innerHTML = "Adoptions: " + adoptions_amount
+    
     human_amount -= adoptions_price
     adoptions_price * 2
-    adoptions_amount += 2
-    adoptions_price_EL.innerHTML = "Price:" + adoptions_price
+    adoptions_amount += 3
+    adoptions_price_EL.innerHTML = "Price: " + adoptions_price
     }
 }
-function steal_click() {
-    if (human_amount >= steal_price)
+function thieves_click() {
+    if (human_amount >= thieves_price)
     {
-    human_amount -= steal_price
-    steal_price *= 50
-    steal_amount += 1
-    steal_price_EL.innerHTML = "Price: " + steal_price
+    thieves_am_EL.innerHTML = "Thieves: " + thieves_amount;
+
+    human_amount -= thieves_price
+    thieves_price *= 50
+    thieves_amount += 2
+    thieves_price_EL.innerHTML = "Price: " + thieves_price
     }
 }
 
-function cloning_click() {
-    if (human_amount > cloning_price)
+function clonings_click() {
+    if (human_amount > clonings_price)
     {
-    human_amount -= cloning_price
-    cloning_price *= 5
-    cloning_amount += 1000
-    cloning_price_EL.innerHTML = "Price:" + cloning_price
+    clonings_am_EL.innerHTML = "Clonings: " + clonings_amount
+
+    human_amount -= clonings_price
+    clonings_price *= 5
+    clonings_amount += 1000
+    clonings_price_EL.innerHTML = "Price: " + clonings_price
     }
 }
 
 human_EL.addEventListener("click", human_click)
 adoptions_EL.addEventListener("click", adoptions_click)
-steal_EL.addEventListener("click", steal_click)
-cloning_EL.addEventListener("click", cloning_click)
+thieves_EL.addEventListener("click", thieves_click)
+clonings_EL.addEventListener("click", clonings_click)
 
-var human_timer_interval = setInterval(human_timer, 10); // kjører funksjonen myTimer 1 gang i sekundet
-function myTimer(){ 
+var human_timer_interval = setInterval(human_timer, 50); // kjører funksjonen myTimer 1 gang i sekundet
+function human_timer(){ 
     human_num_EL.innerHTML = human_amount;
 }
-var adoptions_timer_interval = setInterval(adoptions_timer, 1000); // kjører funksjonen myTimer 1 gang i sekundet
+var adoptions_timer_interval = setInterval(adoptions_timer, 500); // kjører funksjonen myTimer 1 gang i sekundet
 function adoptions_timer(){ 
     human_amount += adoptions_amount;
 }
-var steal_timer_interval = setInterval(adoptions_timer, 1000); // kjører funksjonen myTimer 1 gang i sekundet
-function adoptions_timer(){ 
-    human_amount += adoptions_amount;
+var thieves_timer_interval = setInterval(thieves_timer, 500); // kjører funksjonen myTimer 1 gang i sekundet
+function thieves_timer(){ 
+    human_amount += thieves_amount;
 }
-var adoptions_timer_interval = setInterval(adoptions_timer, 1000); // kjører funksjonen myTimer 1 gang i sekundet
-function adoptions_timer(){ 
-    human_amount += adoptions_amount;
+var clonings_timer_interval = setInterval(clonings_timer, 500); // kjører funksjonen myTimer 1 gang i sekundet
+function clonings_timer(){ 
+    human_amount += clonings_amount;
 }
 

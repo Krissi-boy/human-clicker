@@ -8,14 +8,13 @@ body {
     width: 700px;
     min-height: 300px;
     margin: 50px auto;
-    background-color: rgb(115, 255, 0);
+    background-color: greenyellow;
     display: flex;
 }
 .venstre, .høyre {
     margin: 30px;
 }
 .venstre {
-    background-color: darkgreen;
     flex-grow: 1;
 }
 .hoyre {
@@ -29,4 +28,15 @@ body {
     background-color: beige;
     margin: 5px;
 }
+h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
 
+.shop_building {
+    display: flex;
+    flex-direction: row;
+    border-width: 2px;
+    border-style: solid;
+    border-color: greenyellow;
+}
