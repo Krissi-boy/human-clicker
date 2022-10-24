@@ -40,3 +40,7 @@ h3 {
     border-style: solid;
     border-color: greenyellow;
 }
+body {
+    background-image: url("covid_virus.jpg");
+    position: fill;
+}

@@ -9,7 +9,7 @@ var clonings_price_EL = document.querySelector("#clonings_price")
 var thieves_am_EL = document.querySelector("#thieves_am")
 var adoptions_am_EL = document.querySelector("#adoptions_am")
 var clonings_am_EL = document.querySelector("#clonings_am")
-
+var innpakning_EL = document.querySelector(".innpakning")
 
 console.log(thieves_am_EL)
 
@@ -23,11 +23,14 @@ var thieves_price = 50;
 var adoptions_price = 500;
 var clonings_price = 1500;
 
+var anger = 0;
+
 
 function human_click() {
     console.log(human_num_EL)
     human_amount += 1
     human_num_EL.innerHTML = human_amount 
+    anger += 1;
 }
 function adoptions_click() {
     if (human_amount > adoptions_price)
@@ -72,6 +75,15 @@ clonings_EL.addEventListener("click", clonings_click)
 var human_timer_interval = setInterval(human_timer, 50); // kjører funksjonen myTimer 1 gang i sekundet
 function human_timer(){ 
     human_num_EL.innerHTML = human_amount;
+    if (anger > 10) {
+        innpakning_EL.style.backgroundColor = "red";
+    }
+    if (anger < 10) {
+        innpakning_EL.style.backgroundColor = "greenyellow"
+    }
+
+
+
 }
 var adoptions_timer_interval = setInterval(adoptions_timer, 500); // kjører funksjonen myTimer 1 gang i sekundet
 function adoptions_timer(){ 
@@ -85,4 +97,8 @@ var clonings_timer_interval = setInterval(clonings_timer, 500); // kjører funks
 function clonings_timer(){ 
     human_amount += clonings_amount;
 }
-
+var number_down_interval = setInterval(number_down_timer, 500); // kjører funksjonen myTimer 1 gang i sekundet
+function number_down_timer(){ 
+    anger -= 1;
+    console.log("Anger: " + anger);
+}
