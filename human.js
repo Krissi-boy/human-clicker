@@ -10,6 +10,8 @@ var thieves_am_EL = document.querySelector("#thieves_am")
 var adoptions_am_EL = document.querySelector("#adoptions_am")
 var clonings_am_EL = document.querySelector("#clonings_am")
 var innpakning_EL = document.querySelector(".innpakning")
+var gold_human_EL = document.querySelector("#gold_human")
+gold_human_EL.style.display = ("none");
 
 console.log(thieves_am_EL)
 
@@ -24,6 +26,7 @@ var adoptions_price = 500;
 var clonings_price = 1500;
 
 var anger = 0;
+var gold_human = 1;
 
 
 function human_click() {
@@ -66,21 +69,42 @@ function clonings_click() {
     clonings_price_EL.innerHTML = "Price: " + clonings_price
     }
 }
+function gold_human_click() {
+    human_amount += 2000
+
+    gold_human_EL.style.display = ("none");
+   
+}
+
 
 human_EL.addEventListener("click", human_click)
 adoptions_EL.addEventListener("click", adoptions_click)
 thieves_EL.addEventListener("click", thieves_click)
 clonings_EL.addEventListener("click", clonings_click)
+gold_human_EL.addEventListener("click", gold_human_click)
 
 var human_timer_interval = setInterval(human_timer, 50); // kjører funksjonen myTimer 1 gang i sekundet
 function human_timer(){ 
     human_num_EL.innerHTML = human_amount;
-    if (anger > 10) {
-        innpakning_EL.style.backgroundColor = "red";
-    }
     if (anger < 10) {
         innpakning_EL.style.backgroundColor = "greenyellow"
+        human_EL.style.animationPlayState = "paused";
     }
+    if (anger > 15) {
+        innpakning_EL.style.backgroundColor = "orange"
+        human_EL.style.animation = "shake 0.5s infinite";
+        human_EL.style.animationPlayState = "running";
+       
+    }  
+    if (anger > 20) {
+        innpakning_EL.style.backgroundColor = "red";
+        human_EL.style.animation = "shake_much 0.5s infinite";
+        human_EL.style.animationPlayState = "running";
+    }
+   
+   
+
+   
 
 
 
@@ -99,6 +123,20 @@ function clonings_timer(){
 }
 var number_down_interval = setInterval(number_down_timer, 500); // kjører funksjonen myTimer 1 gang i sekundet
 function number_down_timer(){ 
-    anger -= 1;
     console.log("Anger: " + anger);
+    if (anger > 0){
+        anger -= 1;
+    }
+    if (anger > 20) {
+        human_amount -= 1
+    }
+    if (human_amount > 100000) {
+        human_amount -= 60
+    }
+        
 }
+var gold_human_timer_interval = setInterval(gold_human_timer, 2000); // kjører funksjonen myTimer 1 gang i sekundet
+function gold_human_timer(){ 
+    gold_human_EL.style.display = ("block");
+}
+
