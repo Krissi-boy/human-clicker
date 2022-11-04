@@ -13,6 +13,7 @@ var innpakning_EL = document.querySelector(".innpakning")
 var gold_human_EL = document.querySelector("#gold_human")
 gold_human_EL.style.display = ("none");
 
+
 console.log(thieves_am_EL)
 
 var human_amount = 0;
@@ -71,11 +72,9 @@ function clonings_click() {
 }
 function gold_human_click() {
     human_amount += 2000
-
     gold_human_EL.style.display = ("none");
    
 }
-
 
 human_EL.addEventListener("click", human_click)
 adoptions_EL.addEventListener("click", adoptions_click)
@@ -135,8 +134,15 @@ function number_down_timer(){
     }
         
 }
-var gold_human_timer_interval = setInterval(gold_human_timer, 2000); // kjører funksjonen myTimer 1 gang i sekundet
+var gold_human_timer_interval = setInterval(gold_human_timer, 300000); // kjører funksjonen myTimer 1 gang i sekundet
 function gold_human_timer(){ 
     gold_human_EL.style.display = ("block");
+  
+}
+var gold_human_random_position = setInterval(gold_human_random_position, 2000) // kjører funksjonen myTimer 1 gang i sekundet
+function gold_human_random_position(){
+    gold_human_EL.style.position = "absolute";
+    gold_human_EL.style.left = String(Math.floor(Math.random() * 1000)) +"px";
+    gold_human_EL.style.top = String(Math.floor(Math.random() * 1000)) +"px"
 }
 
